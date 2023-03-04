@@ -1,24 +1,34 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+
+  const[ number, setNumber ] = useState(0);
+  let yellow = '#ffc800';
+  const [bgColor, setBgColor] = useState(yellow);
+
+
+  const count = () => {
+    setNumber(number+1);
+    let aquamarine = '#7FFFD4';
+    setBgColor(aquamarine);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="page">
+       <div className='center'>
+         <div className="square">
+            <div className="circle" style={{ background: bgColor }}>
+              <h1> {number} </h1>
+           </div>
+         </div>
+
+         <div>
+          <button onClick={count}> Change Color</button>
+         </div>
+        </div>
+      </div>
+    </>
   );
 }
 
